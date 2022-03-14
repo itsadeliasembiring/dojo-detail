@@ -1,12 +1,26 @@
-import { makeStyles } from "@mui/styles";
 import Colors from "../../Theme/Color";
 
-export const useStyles = makeStyles(() => ({
-  fontTitle: {
-    fontSize: 14,
-    fontWeight: "bold",
-  },
-}));
+export const ratingIcon = {
+  color: Colors.yellow,
+  width: 20,
+  height: 20,
+};
+
+export const locationIcon = {
+  color: Colors.orange,
+};
+
+export const textTitle = { fontSize: 14, fontWeight: "bold" };
+
+export const textRating = { fontSize: 12, fontWeight: "bold" };
+
+export const textReview = { fontSize: 12, color: Colors.gray };
+
+export const textLocation = { fontSize: 12, color: Colors.orange };
+
+export const detailLocation = { fontSize: 12, color: Colors.gray };
+
+export const textAboutDojo = { fontSize: 12 };
 
 export const editButton = {
   color: Colors.orange,
@@ -22,5 +36,3 @@ export const editButton = {
   textDecoration: "none",
   bottom: 0,
 };
-
-export const fontTitle = { fontSize: 14, fontWeight: "bold" };

@@ -1,16 +1,13 @@
 import React from "react";
 // Import Component MUI
 import {
-  Button,
   Box,
   Card,
-  Container,
+  CardContent,
   Grid,
   IconButton,
   Typography,
 } from "@mui/material";
-// Import React router
-import { Link } from "react-router-dom";
 // Import Icon
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -18,79 +15,83 @@ import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import ContactSupportOutlinedIcon from "@mui/icons-material/ContactSupportOutlined";
 import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
-import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-// Import Theme & Styles
+// Import Styles
 import {
-  useStyles,
   backgroundHeader,
   backIconButton,
+  backIcon,
   boxMenu,
   cardMenu,
+  cardContent,
   typographyMenu,
   iconMenu,
   iconButton,
 } from "./Styles";
-import Colors from "../../Theme/Color";
+// Import React router
+import { Link } from "react-router-dom";
 
 export default function Main() {
-  const classes = useStyles();
   return (
     <>
+      {/* Background */}
       <Box sx={backgroundHeader}>
         <Grid container>
           <Grid item xs={12} alignItems={"left"} sx={{ mt: 1.5, ml: 1.5 }}>
             <IconButton sx={backIconButton}>
-              <ArrowBackIcon sx={{ color: Colors.white }} />
+              <ArrowBackIcon sx={backIcon} />
             </IconButton>
           </Grid>
         </Grid>
       </Box>
 
-      <Box sx={boxMenu} margin="auto">
-        <Card sx={cardMenu} justifyContent={"center"}>
-          <Grid container direction="row" spacing={2} mt={-0.5} ml={0.1}>
-            <Grid item alignItems={"center"} textAlign={"center"}>
-              <Link to="/" style={{ textDecoration: "none" }}>
+      {/* Menu */}
+      <Box sx={boxMenu}>
+        <Card sx={cardMenu}>
+          <CardContent sx={cardContent} alignItem="center">
+            <Grid container direction="row" margin="auto" xs={12}>
+              {/* Profile */}
+              <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  <IconButton sx={iconButton}>
+                    <InfoOutlinedIcon sx={iconMenu} />
+                  </IconButton>
+                  <Typography sx={typographyMenu}>Profil</Typography>
+                </Link>
+              </Grid>
+              {/* Pengurus */}
+              <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
+                <Link to="/pengurus-dojo" style={{ textDecoration: "none" }}>
+                  <IconButton sx={iconButton}>
+                    <PermIdentityOutlinedIcon sx={iconMenu} />
+                  </IconButton>
+                  <Typography sx={typographyMenu}>Pengurus</Typography>
+                </Link>
+              </Grid>
+              {/* Contact */}
+              <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
+                <Link to="/contact-dojo" style={{ textDecoration: "none" }}>
+                  <IconButton sx={iconButton}>
+                    <ContactSupportOutlinedIcon sx={iconMenu} />
+                  </IconButton>
+                  <Typography sx={typographyMenu}>Kontak</Typography>
+                </Link>
+              </Grid>
+              {/* Jadwal */}
+              <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
                 <IconButton sx={iconButton}>
-                  <InfoOutlinedIcon sx={iconMenu} />
+                  <EventNoteOutlinedIcon sx={iconMenu} />
                 </IconButton>
-                <Typography sx={typographyMenu}>Profil</Typography>
-              </Link>
-            </Grid>
-
-            <Grid item alignItems={"center"} textAlign={"center"}>
-              <Link to="/pengurus-dojo" style={{ textDecoration: "none" }}>
+                <Typography sx={typographyMenu}>Jadwal</Typography>
+              </Grid>
+              {/* Biaya */}
+              <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
                 <IconButton sx={iconButton}>
-                  <PermIdentityOutlinedIcon sx={iconMenu} />
+                  <LocalOfferOutlinedIcon sx={iconMenu} />
                 </IconButton>
-                <Typography sx={typographyMenu}>Pengurus</Typography>
-              </Link>
+                <Typography sx={typographyMenu}>Biaya</Typography>
+              </Grid>
             </Grid>
-
-            <Grid item alignItems={"center"} textAlign={"center"}>
-              <Link to="/contact-dojo" style={{ textDecoration: "none" }}>
-                <IconButton sx={iconButton}>
-                  <ContactSupportOutlinedIcon sx={iconMenu} />
-                </IconButton>
-                <Typography sx={typographyMenu}>Kontak</Typography>
-              </Link>
-            </Grid>
-
-            <Grid item alignItems={"center"} textAlign={"center"}>
-              <IconButton sx={iconButton}>
-                <EventNoteOutlinedIcon sx={iconMenu} />
-              </IconButton>
-              <Typography sx={typographyMenu}>Jadwal</Typography>
-            </Grid>
-
-            <Grid item alignItems={"center"} textAlign={"center"}>
-              <IconButton sx={iconButton}>
-                <LocalOfferOutlinedIcon sx={iconMenu} />
-              </IconButton>
-              <Typography sx={typographyMenu}>Biaya</Typography>
-            </Grid>
-          </Grid>
+          </CardContent>
         </Card>
       </Box>
     </>

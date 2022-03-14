@@ -1,8 +1,5 @@
-import { makeStyles } from "@mui/styles";
 import Colors from "../../Theme/Color";
 import background from "../../Assets/Images/background-header.png";
-
-export const useStyles = makeStyles(() => ({}));
 
 export const backgroundHeader = {
   backgroundImage: `url(${background})`,
@@ -22,17 +19,32 @@ export const backIconButton = {
   height: 28,
 };
 
+export const backIcon = {
+  color: Colors.white,
+};
+
 export const boxMenu = {
+  margin: "auto",
   justifyContent: "center",
+  mt: -4.7,
   mr: 2,
   ml: 2,
-  mt: -4.7,
 };
 
 export const cardMenu = {
-  maxWidth: 300,
+  // minWidth: 280,
   height: 80,
   borderRadius: 2,
+  justifyContent: "center",
+  pl: 1,
+  pr: 1,
+};
+
+export const cardContent = {
+  paddingTop: 1.5,
+  paddingRight: 0,
+  paddingLeft: 0,
+  paddingBottom: 0,
   justifyContent: "center",
 };
 
@@ -52,6 +64,7 @@ export const iconButton = {
 export const typographyMenu = {
   fontSize: 10,
   mt: 0.5,
+  colors: Colors.black,
   "&:focus": {
     color: Colors.purple,
   },
@@ -64,7 +77,6 @@ export const iconMenu = {
 
 export const editButton = {
   color: Colors.orange,
-
   borderColor: Colors.orange,
   borderRadius: 2,
   "&:hover": {

@@ -6,71 +6,104 @@ import {
   Box,
   Card,
   Container,
+  Dialog,
+  DialogActions,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
   Grid,
-  Typography,
   IconButton,
+  Typography,
 } from "@mui/material";
-// Import Theme & Styles
-import Colors from "../../Theme/Color";
+// Import Icon
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import hanafi from "../../Assets/Images/hanafi.png";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+// Import Styles
+import {
+  cardPengurus,
+  grid,
+  fontSize,
+  detailIcon,
+  dialogIcon,
+  dialogName,
+  dialogPosition,
+  dialogContent,
+  useStyles,
+  addButton,
+} from "./Styles";
+// Import Data
 import pengurusData from "./Data";
 
-const addButton = {
-  color: Colors.white,
-  backgroundColor: Colors.orange,
-  borderRadius: 3,
-  "&:hover": {
-    backgroundColor: Colors.orange,
-  },
-  minWidth: 48,
-  height: 48,
-  fontSize: 25,
-  textTransform: "capitalize",
-  textDecoration: "none",
-  bottom: 0,
-};
 export default function Pengurus() {
+  const classes = useStyles();
+  // Dialog
+  const [open, setOpen] = React.useState(false);
+  // const [avatar, setAvatar] = useState("");
+  // const [name, setName] = useState("");
+  // const [position, setPosition] = useState("");
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Container>
         <Box mt={3}>
           {pengurusData.map((data) => (
-            <Card
-              sx={{
-                backgroundColor: Colors.lightGray,
-                height: 62,
-                alignItems: "center",
-                justifyContent: "center",
-                mb: 1.5,
-              }}
-              elevation={1}
-            >
-              <Grid
-                container
-                direction="row"
-                spacing={1}
-                sx={{ alignItems: "center", margin: "auto", boxShadow: "none" }}
-              >
+            <Card sx={cardPengurus} elevation={1} onClick={handleClickOpen}>
+              <Grid container spacing={1} sx={grid}>
+                {/* Avatar */}
                 <Grid item xs={2}>
-                  <Avatar alt="hanafi" src={data.img} />
+                  <Avatar alt={data.name} src={data.img} />
                 </Grid>
+                {/* Name & Position*/}
                 <Grid item xs={8}>
-                  <Typography sx={{ fontSize: 12, fontWeight: "bold" }}>
+                  <Typography sx={fontSize} fontWeight="bold">
                     {data.name}
                   </Typography>
-                  <Typography sx={{ fontSize: 12 }}>{data.position}</Typography>
+                  <Typography sx={fontSize}>{data.position}</Typography>
                 </Grid>
+                {/* Detail Icon */}
                 <Grid item xs>
                   <IconButton>
-                    <MoreVertIcon sx={{ color: Colors.black }} />
+                    <MoreVertIcon sx={detailIcon} />
                   </IconButton>
                 </Grid>
               </Grid>
             </Card>
           ))}
 
-          {/* Button */}
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            classes={{ paper: classes.paper }}
+          >
+            <DialogContent sx={dialogContent} className={classes.DialogContent}>
+              <div align={"center"}>
+                <Avatar className={classes.avatar}></Avatar>
+              </div>
+
+              <Typography sx={dialogName}>Hanafi</Typography>
+              <Typography sx={dialogPosition}>Ketua Umum</Typography>
+
+              <div align={"right"}>
+                <IconButton onClick={handleClose}>
+                  <EditIcon sx={dialogIcon} />
+                </IconButton>
+                <IconButton onClick={handleClose}>
+                  <DeleteIcon sx={dialogIcon} />
+                </IconButton>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          {/* Add Button */}
           <Grid container mt={7} mb={3} align="right">
             <Grid item xs={12}>
               <Button sx={addButton} variant="contained">
