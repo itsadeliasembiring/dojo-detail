@@ -17,6 +17,8 @@ import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 // Import Styles
 import {
+  activeMenu,
+  navLink,
   backgroundHeader,
   backIconButton,
   backIcon,
@@ -28,9 +30,9 @@ import {
   iconButton,
 } from "./Styles";
 // Import React router
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-export default function Main() {
+export default function Menu() {
   return (
     <>
       {/* Background */}
@@ -47,48 +49,72 @@ export default function Main() {
       {/* Menu */}
       <Box sx={boxMenu}>
         <Card sx={cardMenu}>
-          <CardContent sx={cardContent} alignItem="center">
-            <Grid container direction="row" margin="auto" xs={12}>
+          <CardContent sx={cardContent} alignItems={"center"}>
+            <Grid container direction="row" margin="auto">
               {/* Profile */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <Link to="/" style={{ textDecoration: "none" }}>
+                <NavLink
+                  to="/profile-dojo"
+                  activeStyle={activeMenu}
+                  style={navLink}
+                >
                   <IconButton sx={iconButton}>
                     <InfoOutlinedIcon sx={iconMenu} />
                   </IconButton>
                   <Typography sx={typographyMenu}>Profil</Typography>
-                </Link>
+                </NavLink>
               </Grid>
               {/* Pengurus */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <Link to="/pengurus-dojo" style={{ textDecoration: "none" }}>
+                <NavLink
+                  to="/pengurus-dojo"
+                  activeStyle={activeMenu}
+                  style={navLink}
+                >
                   <IconButton sx={iconButton}>
                     <PermIdentityOutlinedIcon sx={iconMenu} />
                   </IconButton>
                   <Typography sx={typographyMenu}>Pengurus</Typography>
-                </Link>
+                </NavLink>
               </Grid>
               {/* Contact */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <Link to="/contact-dojo" style={{ textDecoration: "none" }}>
+                <NavLink
+                  to="/contact-dojo"
+                  activeStyle={activeMenu}
+                  style={navLink}
+                >
                   <IconButton sx={iconButton}>
                     <ContactSupportOutlinedIcon sx={iconMenu} />
                   </IconButton>
                   <Typography sx={typographyMenu}>Kontak</Typography>
-                </Link>
+                </NavLink>
               </Grid>
               {/* Jadwal */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <IconButton sx={iconButton}>
-                  <EventNoteOutlinedIcon sx={iconMenu} />
-                </IconButton>
-                <Typography sx={typographyMenu}>Jadwal</Typography>
+                <NavLink
+                  to="/schedule-dojo"
+                  activeStyle={activeMenu}
+                  style={navLink}
+                >
+                  <IconButton sx={iconButton}>
+                    <EventNoteOutlinedIcon sx={iconMenu} />
+                  </IconButton>
+                  <Typography sx={typographyMenu}>Jadwal</Typography>
+                </NavLink>
               </Grid>
               {/* Biaya */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <IconButton sx={iconButton}>
-                  <LocalOfferOutlinedIcon sx={iconMenu} />
-                </IconButton>
-                <Typography sx={typographyMenu}>Biaya</Typography>
+                <NavLink
+                  to="/cost-dojo"
+                  activeStyle={activeMenu}
+                  style={navLink}
+                >
+                  <IconButton sx={iconButton}>
+                    <LocalOfferOutlinedIcon sx={iconMenu} />
+                  </IconButton>
+                  <Typography sx={typographyMenu}>Biaya</Typography>
+                </NavLink>
               </Grid>
             </Grid>
           </CardContent>

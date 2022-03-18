@@ -1,19 +1,4 @@
 import Colors from "../../Theme/Color";
-import { makeStyles } from "@mui/styles";
-
-export const useStyles = makeStyles(() => ({
-  paper: { minWidth: 287, height: 194, borderRadius: 20 },
-  avatar: {
-    width: 80,
-    height: 80,
-  },
-  DialogContent: {
-    paddingTop: 12,
-    paddingBottom: 12,
-    paddingRight: 25,
-    paddingLeft: 25,
-  },
-}));
 
 export const cardPengurus = {
   backgroundColor: Colors.lightGray,
@@ -21,10 +6,15 @@ export const cardPengurus = {
   alignItems: "center",
   justifyContent: "center",
   mb: 1.5,
+  pr: 2,
+};
+export const cardContent = {
+  padding: 0,
+  justifyContent: "center",
 };
 
 export const grid = {
-  alignItems: "center",
+  justifyContent: "center",
   margin: "auto",
   direction: "row",
 };
@@ -35,12 +25,28 @@ export const fontSize = {
 
 export const detailIcon = { color: Colors.black };
 
-export const dialog = {
-  "& .MuiPaper-root .MuiDialog-paper": {
-    width: 302,
-    height: 171,
+export const buttonCard = {
+  color: Colors.black,
+  borderRadius: 3,
+  backgroundColor: Colors.grayButton,
+  "&:hover": {
+    backgroundColor: Colors.grayButton,
+  },
+  fontSize: 10,
+  textTransform: "capitalize",
+  width: 80,
+  height: 22,
+  fontWeight: "normal",
+};
+
+export const buttonGroup = {
+  borderRadius: 3,
+  boxShadow: "none",
+  "& .MuiButtonGroup-grouped:not(:last-of-type)": {
+    borderColor: "#CFCFCF",
   },
 };
+
 export const addButton = {
   color: Colors.white,
   backgroundColor: Colors.orange,
@@ -49,31 +55,9 @@ export const addButton = {
     backgroundColor: Colors.orange,
   },
   minWidth: 48,
-  height: 48,
+  height: 45,
   fontSize: 25,
   textTransform: "capitalize",
   textDecoration: "none",
   bottom: 0,
-};
-
-export const dialogIcon = {
-  width: 20,
-  height: 20,
-  color: Colors.black,
-  padding: 0,
-  mr: 1,
-};
-
-export const dialogName = {
-  fontSize: 16,
-  fontWeight: "bold",
-  mt: 1,
-};
-
-export const dialogPosition = { fontSize: 14, color: Colors.darkGray };
-
-export const dialogContent = {
-  "& .MuiDialogContent-root": {
-    padding: 0,
-  },
 };

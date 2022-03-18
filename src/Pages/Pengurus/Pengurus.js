@@ -1,107 +1,93 @@
 import React from "react";
+import { useState } from "react";
 // Import Component MUI
 import {
   Avatar,
   Button,
+  ButtonGroup,
   Box,
   Card,
+  CardContent,
   Container,
-  Dialog,
-  DialogActions,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
   Grid,
   IconButton,
   Typography,
 } from "@mui/material";
 // Import Icon
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
 // Import Styles
 import {
   cardPengurus,
+  cardContent,
   grid,
   fontSize,
   detailIcon,
-  dialogIcon,
-  dialogName,
-  dialogPosition,
-  dialogContent,
-  useStyles,
+  buttonCard,
   addButton,
+  buttonGroup,
 } from "./Styles";
 // Import Data
 import pengurusData from "./Data";
 
 export default function Pengurus() {
-  const classes = useStyles();
-  // Dialog
-  const [open, setOpen] = React.useState(false);
-  // const [avatar, setAvatar] = useState("");
-  // const [name, setName] = useState("");
-  // const [position, setPosition] = useState("");
+  const [buttonDetail, setButtonDetail] = useState(false);
+  const [selectedID, setSelectedID] = useState("");
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handlebuttonDetail = () => {
+    setButtonDetail(!buttonDetail);
   };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const buttons = [
+    <Button sx={buttonCard} key="edit">
+      Edit
+    </Button>,
+    <Button sx={buttonCard} key="delete">
+      Delete
+    </Button>,
+  ];
 
   return (
     <>
       <Container>
         <Box mt={3}>
           {pengurusData.map((data) => (
-            <Card sx={cardPengurus} elevation={1} onClick={handleClickOpen}>
-              <Grid container spacing={1} sx={grid}>
-                {/* Avatar */}
-                <Grid item xs={2}>
-                  <Avatar alt={data.name} src={data.img} />
+            <Card
+              sx={cardPengurus}
+              elevation={1}
+              onClick={() => handlebuttonDetail(data.id)}
+            >
+              <CardContent sx={cardContent}>
+                <Grid container spacing={1} sx={grid}>
+                  {/* Avatar */}
+                  <Grid item xs={2.2} mt={0.3}>
+                    <Avatar alt={data.name} src={data.img} />
+                  </Grid>
+                  {/* Name & Position*/}
+                  <Grid item xs={6} mt={0.3}>
+                    <Typography sx={fontSize} fontWeight="bold">
+                      {data.name}
+                    </Typography>
+                    <Typography sx={fontSize}>{data.position}</Typography>
+                  </Grid>
+                  {/* Detail Icon */}
+                  <Grid item xs align={"right"}>
+                    {buttonDetail ? (
+                      <ButtonGroup
+                        orientation="vertical"
+                        variant="contained"
+                        sx={buttonGroup}
+                      >
+                        {buttons}
+                      </ButtonGroup>
+                    ) : (
+                      <IconButton onClick={() => handlebuttonDetail(data.id)}>
+                        <MoreVertIcon sx={detailIcon} />
+                      </IconButton>
+                    )}
+                  </Grid>
                 </Grid>
-                {/* Name & Position*/}
-                <Grid item xs={8}>
-                  <Typography sx={fontSize} fontWeight="bold">
-                    {data.name}
-                  </Typography>
-                  <Typography sx={fontSize}>{data.position}</Typography>
-                </Grid>
-                {/* Detail Icon */}
-                <Grid item xs>
-                  <IconButton>
-                    <MoreVertIcon sx={detailIcon} />
-                  </IconButton>
-                </Grid>
-              </Grid>
+              </CardContent>
             </Card>
           ))}
-
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            classes={{ paper: classes.paper }}
-          >
-            <DialogContent sx={dialogContent} className={classes.DialogContent}>
-              <div align={"center"}>
-                <Avatar className={classes.avatar}></Avatar>
-              </div>
-
-              <Typography sx={dialogName}>Hanafi</Typography>
-              <Typography sx={dialogPosition}>Ketua Umum</Typography>
-
-              <div align={"right"}>
-                <IconButton onClick={handleClose}>
-                  <EditIcon sx={dialogIcon} />
-                </IconButton>
-                <IconButton onClick={handleClose}>
-                  <DeleteIcon sx={dialogIcon} />
-                </IconButton>
-              </div>
-            </DialogContent>
-          </Dialog>
 
           {/* Add Button */}
           <Grid container mt={7} mb={3} align="right">

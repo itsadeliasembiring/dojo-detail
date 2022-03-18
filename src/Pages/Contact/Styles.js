@@ -3,20 +3,16 @@ import Colors from "../../Theme/Color";
 export const grid = {
   direction: "row",
   justifyContent: "center",
-  mb: 2,
+  display: "flex",
 };
 
 export const icon = {
+  color: Colors.semiBlack,
   fontSize: 22,
 };
 
 export const textContact = {
   fontSize: 14,
-};
-
-export const map = {
-  width: "100%",
-  height: "100%",
 };
 
 export const editButton = {
