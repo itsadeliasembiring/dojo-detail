@@ -34,7 +34,7 @@ export default function Pengurus() {
   const [selectedID, setSelectedID] = useState("");
 
   const handlebuttonDetail = (id) => {
-    if (buttonDetail && selectedID == id) {
+    if (buttonDetail && selectedID === id) {
       setButtonDetail(false);
     } else {
       setButtonDetail(true);
@@ -75,7 +75,7 @@ export default function Pengurus() {
                   </Grid>
                   {/* Detail Icon */}
                   <Grid item xs align={"right"}>
-                    {buttonDetail && selectedID == data.id ? (
+                    {buttonDetail && selectedID === data.id ? (
                       <ButtonGroup
                         orientation="vertical"
                         variant="contained"
