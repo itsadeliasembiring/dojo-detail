@@ -15,7 +15,7 @@ export default function MapsDojo() {
   // Map Size
   const mapStyles = {
     width: "100%",
-    height: 157,
+    height: 160,
   };
 
   return (

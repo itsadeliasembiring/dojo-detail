@@ -5,7 +5,7 @@ export const cardPengurus = {
   height: 62,
   alignItems: "center",
   justifyContent: "center",
-  mb: 1.5,
+  mb: 2,
   pr: 2,
 };
 export const cardContent = {

@@ -31,50 +31,25 @@ export const cardContent = {
   justifyContent: "center",
 };
 
-export const activeMenu = {
-  textDecoration: "none",
-  color: Colors.purple,
-  // " .MuiTypography-root": {
-  //   color: Colors.purple,
-  // },
-  // "& .MuiIconButton-root": {
-  //   backgroundColor: Colors.purple,
-  //   color: Colors.white,
-  // },
-};
-export const navLink = {
-  textDecoration: "none",
-  color: Colors.black,
-  // " .MuiTypography-root": {
-  //   color: Colors.black,
-  // },
-  // " .MuiButtonBase-root .MuiIconButton-root": {
-  //   backgroundColor: Colors.lightGray,
-  //   color: Colors.darkGray,
-  // },
-};
-
 export const typographyMenu = {
   fontSize: 10,
   mt: 0.5,
-  // "&:focus": {
-  //   color: Colors.purple,
-  // },
 };
 
 export const iconMenu = {
   width: 25,
   height: 25,
 };
+
 export const iconButton = {
-  // "&:focus": {
-  //   backgroundColor: Colors.purple,
-  //   color: Colors.white,
-  // ,},
   boxShadow: "0px 1px 4px #a1a1a1",
   borderRadius: 2,
   width: 38,
   height: 38,
+  "&:hover": {
+    backgroundColor: Colors.purple,
+    color: Colors.white,
+  },
 };
 
 export const backIconButton = {
@@ -87,6 +62,7 @@ export const backIconButton = {
   width: 28,
   height: 28,
 };
+
 export const backIcon = {
   color: Colors.white,
 };

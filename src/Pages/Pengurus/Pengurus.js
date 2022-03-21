@@ -33,8 +33,13 @@ export default function Pengurus() {
   const [buttonDetail, setButtonDetail] = useState(false);
   const [selectedID, setSelectedID] = useState("");
 
-  const handlebuttonDetail = () => {
-    setButtonDetail(!buttonDetail);
+  const handlebuttonDetail = (id) => {
+    if (buttonDetail && selectedID == id) {
+      setButtonDetail(false);
+    } else {
+      setButtonDetail(true);
+      setSelectedID(id);
+    }
   };
   const buttons = [
     <Button sx={buttonCard} key="edit">
@@ -70,7 +75,7 @@ export default function Pengurus() {
                   </Grid>
                   {/* Detail Icon */}
                   <Grid item xs align={"right"}>
-                    {buttonDetail ? (
+                    {buttonDetail && selectedID == data.id ? (
                       <ButtonGroup
                         orientation="vertical"
                         variant="contained"

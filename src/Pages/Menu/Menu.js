@@ -16,9 +16,8 @@ import ContactSupportOutlinedIcon from "@mui/icons-material/ContactSupportOutlin
 import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 // Import Styles
+import Colors from "../../Theme/Color";
 import {
-  activeMenu,
-  navLink,
   backgroundHeader,
   backIconButton,
   backIcon,
@@ -29,10 +28,8 @@ import {
   iconMenu,
   iconButton,
 } from "./Styles";
-// Import React router
-import { NavLink } from "react-router-dom";
 
-export default function Menu() {
+export default function Menu(props) {
   return (
     <>
       {/* Background */}
@@ -53,68 +50,107 @@ export default function Menu() {
             <Grid container direction="row" margin="auto">
               {/* Profile */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <NavLink
-                  to="/profile-dojo"
-                  activeStyle={activeMenu}
-                  style={navLink}
+                <IconButton
+                  onClick={() => props.onClick("profile")}
+                  sx={{
+                    ...iconButton,
+                    backgroundColor: `${
+                      props.activeButton === "profile" ? Colors.purple : "white"
+                    }`,
+                    color: `${
+                      props.activeButton === "profile"
+                        ? Colors.white
+                        : Colors.darkGray
+                    }`,
+                  }}
                 >
-                  <IconButton sx={iconButton}>
-                    <InfoOutlinedIcon sx={iconMenu} />
-                  </IconButton>
-                  <Typography sx={typographyMenu}>Profil</Typography>
-                </NavLink>
+                  <InfoOutlinedIcon sx={iconMenu} />
+                </IconButton>
+                <Typography sx={typographyMenu}>Profil</Typography>
               </Grid>
               {/* Pengurus */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <NavLink
-                  to="/pengurus-dojo"
-                  activeStyle={activeMenu}
-                  style={navLink}
+                <IconButton
+                  onClick={() => props.onClick("pengurus")}
+                  sx={{
+                    ...iconButton,
+                    backgroundColor: `${
+                      props.activeButton === "pengurus"
+                        ? Colors.purple
+                        : "white"
+                    }`,
+                    color: `${
+                      props.activeButton === "pengurus"
+                        ? Colors.white
+                        : Colors.darkGray
+                    }`,
+                  }}
                 >
-                  <IconButton sx={iconButton}>
-                    <PermIdentityOutlinedIcon sx={iconMenu} />
-                  </IconButton>
-                  <Typography sx={typographyMenu}>Pengurus</Typography>
-                </NavLink>
+                  <PermIdentityOutlinedIcon sx={iconMenu} />
+                </IconButton>
+                <Typography sx={typographyMenu}>Pengurus</Typography>
               </Grid>
               {/* Contact */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <NavLink
-                  to="/contact-dojo"
-                  activeStyle={activeMenu}
-                  style={navLink}
+                <IconButton
+                  onClick={() => props.onClick("contact")}
+                  sx={{
+                    ...iconButton,
+                    backgroundColor: `${
+                      props.activeButton === "contact" ? Colors.purple : "white"
+                    }`,
+                    color: `${
+                      props.activeButton === "contact"
+                        ? Colors.white
+                        : Colors.darkGray
+                    }`,
+                  }}
                 >
-                  <IconButton sx={iconButton}>
-                    <ContactSupportOutlinedIcon sx={iconMenu} />
-                  </IconButton>
-                  <Typography sx={typographyMenu}>Kontak</Typography>
-                </NavLink>
+                  <ContactSupportOutlinedIcon sx={iconMenu} />
+                </IconButton>
+                <Typography sx={typographyMenu}>Kontak</Typography>
               </Grid>
               {/* Jadwal */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <NavLink
-                  to="/schedule-dojo"
-                  activeStyle={activeMenu}
-                  style={navLink}
+                <IconButton
+                  onClick={() => props.onClick("schedule")}
+                  sx={{
+                    ...iconButton,
+                    backgroundColor: `${
+                      props.activeButton === "schedule"
+                        ? Colors.purple
+                        : "white"
+                    }`,
+                    color: `${
+                      props.activeButton === "schedule"
+                        ? Colors.white
+                        : Colors.darkGray
+                    }`,
+                  }}
                 >
-                  <IconButton sx={iconButton}>
-                    <EventNoteOutlinedIcon sx={iconMenu} />
-                  </IconButton>
-                  <Typography sx={typographyMenu}>Jadwal</Typography>
-                </NavLink>
+                  <EventNoteOutlinedIcon sx={iconMenu} />
+                </IconButton>
+                <Typography sx={typographyMenu}>Jadwal</Typography>
               </Grid>
               {/* Biaya */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
-                <NavLink
-                  to="/cost-dojo"
-                  activeStyle={activeMenu}
-                  style={navLink}
+                <IconButton
+                  onClick={() => props.onClick("cost")}
+                  sx={{
+                    ...iconButton,
+                    backgroundColor: `${
+                      props.activeButton === "cost" ? Colors.purple : "white"
+                    }`,
+                    color: `${
+                      props.activeButton === "cost"
+                        ? Colors.white
+                        : Colors.darkGray
+                    }`,
+                  }}
                 >
-                  <IconButton sx={iconButton}>
-                    <LocalOfferOutlinedIcon sx={iconMenu} />
-                  </IconButton>
-                  <Typography sx={typographyMenu}>Biaya</Typography>
-                </NavLink>
+                  <LocalOfferOutlinedIcon sx={iconMenu} />
+                </IconButton>
+                <Typography sx={typographyMenu}>Biaya</Typography>
               </Grid>
             </Grid>
           </CardContent>
