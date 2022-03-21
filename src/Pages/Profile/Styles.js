@@ -13,7 +13,11 @@ export const locationIcon = {
 export const textTitle = { fontSize: 14, fontWeight: "bold" };
 export const textRating = { fontSize: 12, fontWeight: "bold" };
 export const textReview = { fontSize: 12, color: Colors.gray };
-export const textLocation = { fontSize: 12, color: Colors.orange };
+export const textLocation = {
+  fontSize: 12,
+  color: Colors.orange,
+  fontWeight: "bold",
+};
 export const textDetailLocation = { fontSize: 12, color: Colors.gray, mt: 0.5 };
 export const textAboutDojo = { fontSize: 12 };
 

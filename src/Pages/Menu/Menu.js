@@ -66,7 +66,18 @@ export default function Menu(props) {
                 >
                   <InfoOutlinedIcon sx={iconMenu} />
                 </IconButton>
-                <Typography sx={typographyMenu}>Profil</Typography>
+                <Typography
+                  sx={{
+                    ...typographyMenu,
+                    color: `${
+                      props.activeButton === "profile"
+                        ? Colors.purple
+                        : Colors.black
+                    }`,
+                  }}
+                >
+                  Profil
+                </Typography>
               </Grid>
               {/* Pengurus */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
@@ -88,7 +99,18 @@ export default function Menu(props) {
                 >
                   <PermIdentityOutlinedIcon sx={iconMenu} />
                 </IconButton>
-                <Typography sx={typographyMenu}>Pengurus</Typography>
+                <Typography
+                  sx={{
+                    ...typographyMenu,
+                    color: `${
+                      props.activeButton === "pengurus"
+                        ? Colors.purple
+                        : Colors.black
+                    }`,
+                  }}
+                >
+                  Pengurus
+                </Typography>
               </Grid>
               {/* Contact */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
@@ -108,7 +130,18 @@ export default function Menu(props) {
                 >
                   <ContactSupportOutlinedIcon sx={iconMenu} />
                 </IconButton>
-                <Typography sx={typographyMenu}>Kontak</Typography>
+                <Typography
+                  sx={{
+                    ...typographyMenu,
+                    color: `${
+                      props.activeButton === "contact"
+                        ? Colors.purple
+                        : Colors.black
+                    }`,
+                  }}
+                >
+                  Kontak
+                </Typography>
               </Grid>
               {/* Jadwal */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
@@ -130,7 +163,18 @@ export default function Menu(props) {
                 >
                   <EventNoteOutlinedIcon sx={iconMenu} />
                 </IconButton>
-                <Typography sx={typographyMenu}>Jadwal</Typography>
+                <Typography
+                  sx={{
+                    ...typographyMenu,
+                    color: `${
+                      props.activeButton === "schedule"
+                        ? Colors.purple
+                        : Colors.black
+                    }`,
+                  }}
+                >
+                  Jadwal
+                </Typography>
               </Grid>
               {/* Biaya */}
               <Grid item alignItems={"center"} textAlign={"center"} xs={2.4}>
@@ -150,7 +194,18 @@ export default function Menu(props) {
                 >
                   <LocalOfferOutlinedIcon sx={iconMenu} />
                 </IconButton>
-                <Typography sx={typographyMenu}>Biaya</Typography>
+                <Typography
+                  sx={{
+                    ...typographyMenu,
+                    color: `${
+                      props.activeButton === "cost"
+                        ? Colors.purple
+                        : Colors.black
+                    }`,
+                  }}
+                >
+                  Biaya
+                </Typography>
               </Grid>
             </Grid>
           </CardContent>

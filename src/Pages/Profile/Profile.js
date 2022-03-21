@@ -58,7 +58,7 @@ export default function Profile() {
             <Grid item xs={1}>
               <LocationOnIcon sx={locationIcon} />
             </Grid>
-            <Grid item xs>
+            <Grid item xs mt={0.4}>
               <Typography sx={textLocation}>{nameLocation}</Typography>
               <Typography sx={textDetailLocation}>{detailLocation}</Typography>
             </Grid>
